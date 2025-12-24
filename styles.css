@@ -5,59 +5,61 @@
 }
 
 body {
-    font-family: "Comic Sans MS", "Arial", sans-serif;
-    background: #ffe4b5;
+    font-family: 'Arial', sans-serif;
+    background: radial-gradient(circle at top, #121a3a, #0b1020);
     padding: 20px;
     min-height: 100vh;
+    color: #eaeaff;
 }
 
-.container{
+.container {
     max-width: 900px;
     margin: 0 auto;
 }
 
-.header{
+.header {
     text-align: center;
-    background: white;
+    background: #141a33;
+    padding: 25px;
     border-radius: 25px;
     margin-bottom: 25px;
-    box-shadow: 0 8px 0 #d4a574;
-    border: 5px solid white;
+    box-shadow: 0 0 25px rgba(124, 124, 255, 0.25);
+    border: 2px solid #7c7cff;
 }
 
-h1{
-    color: #ff6b9d;
+h1 {
+    color: #7c7cff;
     font-size: 2.5em;
     margin-bottom: 20px;
 }
 
-.stats{
+.stats {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
 }
 
-.stat{
-    background: #ffa07a;
-    color: white;
+.stat {
+    background: #1b2350;
+    color: #eaeaff;
     padding: 12px 25px;
     border-radius: 20px;
-    box-shadow: 0 5px 0 #d4886a;
-    border: 4px solid white;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.25);
+    border: 1px solid #00e5ff;
 }
 
-.stat-label{
-    font-size: 0.9rem;
+.stat-label {
+    font-size: 0.9em;
     margin-bottom: 5px;
 }
 
-.stat-value{
-    font-size: 1.8rem;
+.stat-value {
+    font-size: 1.8em;
     font-weight: bold;
 }
 
-.game-board{
+.game-board {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
@@ -74,7 +76,7 @@ h1{
 }
 
 .card:hover {
-    transform: scale(3.08);
+    transform: scale(1.08);
 }
 
 .card.flipped {
@@ -85,7 +87,12 @@ h1{
     transform: rotateY(180deg) scale(1.08);
 }
 
-.card-front, .card-back{
+.card.matched {
+    pointer-events: none;
+}
+
+.card-front,
+.card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -97,19 +104,19 @@ h1{
 }
 
 .card-front {
-    background: white;
-    color: #ff6b9d;
-    font-size: 3.5rem;
-    box-shadow: 0 6px 0 #d4a574;
-    border: 5px solid #98d8c8;
+    background: #141a33;
+    color: #7c7cff;
+    font-size: 3.5em;
+    box-shadow:  0 0 18px rgba(124, 124, 255, 0.3);
+    border: 2px solid #7c7cff;
 }
 
 .card-back {
-    background: white;
+    background: #141a33;
     transform: rotateY(180deg);
     overflow: hidden;
-    box-shadow: 0 6px 0 #d4a574;
-    border: 5px solid #98d8c8;
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.3);
+    border: 2px solid #00e5ff;
 }
 
 .card-back img {
@@ -123,25 +130,26 @@ h1{
 }
 
 .btn {
-    background: #98d9c8;
-    color: white;
-    border: 5px solid white;
+    background: linear-gradient(135deg, #7c7cff, #00e5ff);
+    color: #0b1020;
+    border: none;
     padding: 15px 40px;
     border-radius: 20px;
-    font-size: 1.2rem;
+    font-size: 1.2em;
+    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 6px 0 #7ab8a8;
-    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+    transition: all 0.2s;
 }
 
 .btn:hover {
-    transform: translate(-3px);
-    box-shadow: 0 9px 0 #7ab8a8;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(124, 124, 255, 0.9);
 }
 
 .btn:active {
-    transform: translateX(2px);
-    box-shadow:  0 3px 0 #7ab8a8;
+    transform: translateY(2px);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
 }
 
 .modal {
@@ -151,7 +159,7 @@ h1{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.75);
     justify-content: center;
     align-items: center;
 }
@@ -161,33 +169,29 @@ h1{
 }
 
 .modal-content {
-    background: white;
+    background: #fff;
     padding: 40px;
     border-radius: 30px;
     text-align: center;
-    box-shadow: 0 10px 0 #d4a574;
-    border: 6px solid #ff6b9d;
+    box-shadow:  0 0 40px rgba(124, 124, 255, 0.6);
+    border: 2px solid #7c7cff;
     animation: bounce 0.5s;
 }
 
 @keyframes bounce {
-    0%, 100%{
-        transform: scale(1);
-    }
-    50%{
-        transform: scale(1.1);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
-.modal-content h2{
-    color: #ff6b9d;
-    font-size: 2.8rem;
+.modal-content h2 {
+    color:  #3ddc97;
+    font-size: 2.8em;
     margin-bottom: 20px;
 }
 
-.modal-content p{
-    color: #ffa07a;
-    font-size: 1.4rem;
+.modal-content p {
+    color: #00e5ff;
+    font-size: 1.4em;
     margin-bottom: 30px;
     font-weight: bold;
 }
@@ -196,10 +200,10 @@ h1{
     .game-board {
         grid-template-columns: repeat(3, 1fr);
     }
+    
     h1 {
         font-size: 2em;
     }
-    
 }
 
 @media (max-width: 480px) {
@@ -207,12 +211,12 @@ h1{
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
+    
     h1 {
         font-size: 1.6em;
     }
-
-    .card-front{
+    
+    .card-front {
         font-size: 2.5em;
     }
-    
 }
